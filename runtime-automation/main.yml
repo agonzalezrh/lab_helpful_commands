@@ -51,7 +51,8 @@
 
   - name: Output script result
     ansible.builtin.debug:
-      var: r_result.stdout
+      msg: "{{ r_result.stdout | default('') }}""
+    when: r_script_test.stat.exists
 
   - name: Write script result to file
     ansible.builtin.copy:
@@ -68,4 +69,4 @@
   - name: Fail if stage was failed
     ansible.builtin.fail:
       msg: "Stage failed"
-    when: r_result.rc != 0
+    when: r_result.rc|default(-1) != 0
