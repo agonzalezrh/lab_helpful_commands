@@ -51,7 +51,7 @@
 
   - name: Output script result
     ansible.builtin.debug:
-      msg: "{{ r_result.stdout | default('') }}""
+      msg: "{{ r_result.stdout | default('') }}"
     when: r_script_test.stat.exists
 
   - name: Write script result to file
