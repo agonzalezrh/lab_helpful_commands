@@ -103,7 +103,7 @@ locate newFile
 .Output
 [source,text]
 ----
-/home/rhel/newFile
+/root/newFile
 ----
 
 Now the file is present. This is important to keep in mind so that you
