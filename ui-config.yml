@@ -23,6 +23,3 @@ antora:
 tabs:
 - name: ">_ rhel"
   url: /wetty
-- name: ">_ root"
-  url: /wetty
-  user: root
