@@ -1,12 +1,19 @@
 #!/bin/bash
-USER=rhel
 
-echo "Adding wheel" > /root/post-run.log
-usermod -aG wheel rhel
+# create notes file and populate with some text
 
-echo "Setup vm control01" > /tmp/progress.log
+echo "Just thinking about everything I have been through, and how huge it all feels." >> quote.txt
+echo "The fact that it is just a small part of something larger" >> quote.txt
 
-chmod 666 /tmp/progress.log 
+#subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
 
-#dnf install -y nc
+# install locate
+dnf install -y mlocate
 
+# update locate db
+updatedb
+
+# inject a message into messages
+logger -s "Hello World"
+
+rm -rf /root/*.repo

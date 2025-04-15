@@ -4,18 +4,21 @@ antora:
   name: modules
   dir: www
   modules:
-    - name: module-01
-      label: "Writing your lab"
-      solveButton: true
-    - name: module-02
-      label: "Antora"
-      solveButton: true
-    - name: module-03
-      label: "Tabs"
+  - name: module-01
+    label: Manipulating File Contents
+  - name: module-02
+    label: Viewing the end of log files with 'tail'
+  - name: module-03
+    label: Locating Files
+  - name: module-04
+    label: Searching for text within files and outputs
+  - name: module-05
+    label: Using 'df' to check disk usage
+  - name: module-06
+    label: Viewing processes
+  - name: module-07
+    label: Using 'free' to view information about the system memory usage
 
 tabs:
-  - name: ">_ terminal"
-    url: /wetty
-  - name: "Asciidoc Doc"
-    url: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
-    external: true
+- name: ">_ rhel"
+  url: /wetty

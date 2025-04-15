@@ -1,39 +1,74 @@
-= Writing your lab
+=== Manipulating File Contents
 
-== Variables
+The first step towards modifying files is knowing which files exist. Use
+`+ls+` to take a look at the contents of the current directory:
 
-The `lab_name` var, known as an asciidoc attribute, is set in `site.yml` and can be used to set the lab_name (Example: {lab_name}) or title of your content.
-They are both free to change its value and if you prefer to use a different var name, you can change the value of `lab_name`, for example to `title` in `site.yml` and then reference it in your content as `\{site-title}` (Ex: {site-title}).
-
-Example:
-[source,asciidoc]
+.Command
+[source,bash,role=execute]
 ----
-{my_var}
+ls
 ----
 
-Variable rendered:
-
-{my_var}
-
-== Inserting Images
-
-To display an image in your Antora documentation, place the image file in the `assets/images/` folder of the module, then reference it using the `image::[]` macro
-
-=== Basic Syntax
-
-[source,asciidoc]
+.Output
+[source,text]
 ----
-image::example-image.png[Example Image, width=100, height=100]
+quote.txt
 ----
 
-This will render the `example-image.png` image as it follows:
+Use the `+cat+` command to quickly check what is in file `+quote.txt+`.
+The `+cat+` command is short for "`concatenate`", but it is much more
+versatile than that name suggests.
 
-image::example-image.png[Example Image, width=100, height=100]
+.Command
+[source,bash,role=execute]
+----
+cat quote.txt
+----
 
-=== Understanding the Antora Configuration
+.Output
+[source,text]
+----
+Just thinking about everything I have been through, and how huge it all feels.
+The fact that it is just a small part of something larger
+----
 
-This lab explains the purpose and structure of the YAML configuration used in an Antora-based documentation site.
+Now you can complete the quote by redirecting the output of the `+echo+`
+command. The command below uses the append redirection operator (`+>>+`)
+to cause the output of the `+echo+` command to be written to the end of
+the file _quote.txt_.
 
-=== Basic Structure
+.Command
+[source,bash,role=execute]
+----
+echo "makes it seem more manageable." >> quote.txt
+----
 
-The configuration is written in YAML `ui-config.yml` and includes two main sections: `antora` and `tabs`. Click next to know more.
+There is no output, so view the file contents once again to see this
+change reflected:
+
+.Command
+[source,bash,role=execute]
+----
+cat quote.txt
+----
+
+.Output
+[source,text]
+----
+Just thinking about everything I have been through, and how huge it all feels.
+The fact that it is just a small part of something larger
+makes it seem more manageable.
+----
+
+The `+>>+` operator allows you to add to files from the command line and
+is particularly useful in shell scripting. You can also use it when a
+command has a lengthy output and you want to view that output in a text
+editor.
+
+NOTE: You may also encounter the `+>+` redirection operator. This
+operator will write the output to a file, overwriting the file if it
+already exists. By contrast, the `+>>+` operator will append the output
+to the specified file. The input operator (`+<+`) will redirect data as
+an input to whatever is called before the operator. The pipe operator
+(`+|+`) is used to send the output of one command to another command so
+that you can carry out an operation on the results of the first command.
