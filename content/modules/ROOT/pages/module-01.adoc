@@ -1,5 +1,12 @@
 === Manipulating File Contents
 
+Switch to root user using sudo
+.Command
+[source,bash,role=execute]
+----
+sudo su -
+----
+
 The first step towards modifying files is knowing which files exist. Use
 `+ls+` to take a look at the contents of the current directory:
 
