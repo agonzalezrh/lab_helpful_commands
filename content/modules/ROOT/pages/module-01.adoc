@@ -1,6 +1,7 @@
 === Manipulating File Contents
 
 Switch to root user using sudo
+
 .Command
 [source,bash,role=execute]
 ----
